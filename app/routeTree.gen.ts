@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as UsersImport } from './routes/users'
 import { Route as RedirectImport } from './routes/redirect'
+import { Route as ProductsImport } from './routes/products'
 import { Route as PostsImport } from './routes/posts'
 import { Route as DeferredImport } from './routes/deferred'
 import { Route as LayoutImport } from './routes/_layout'
@@ -38,6 +39,12 @@ const UsersRoute = UsersImport.update({
 const RedirectRoute = RedirectImport.update({
   id: '/redirect',
   path: '/redirect',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProductsRoute = ProductsImport.update({
+  id: '/products',
+  path: '/products',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -147,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/posts'
       fullPath: '/posts'
       preLoaderRoute: typeof PostsImport
+      parentRoute: typeof rootRoute
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsImport
       parentRoute: typeof rootRoute
     }
     '/redirect': {
@@ -285,6 +299,7 @@ export interface FileRoutesByFullPath {
   '': typeof LayoutLayout2RouteWithChildren
   '/deferred': typeof DeferredRoute
   '/posts': typeof PostsRouteWithChildren
+  '/products': typeof ProductsRoute
   '/redirect': typeof RedirectRoute
   '/users': typeof UsersRouteWithChildren
   '/posts/$postId': typeof PostsPostIdRoute
@@ -301,6 +316,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof LayoutLayout2RouteWithChildren
   '/deferred': typeof DeferredRoute
+  '/products': typeof ProductsRoute
   '/redirect': typeof RedirectRoute
   '/posts/$postId': typeof PostsPostIdRoute
   '/users/$userId': typeof UsersUserIdRoute
@@ -318,6 +334,7 @@ export interface FileRoutesById {
   '/_layout': typeof LayoutRouteWithChildren
   '/deferred': typeof DeferredRoute
   '/posts': typeof PostsRouteWithChildren
+  '/products': typeof ProductsRoute
   '/redirect': typeof RedirectRoute
   '/users': typeof UsersRouteWithChildren
   '/_layout/_layout-2': typeof LayoutLayout2RouteWithChildren
@@ -338,6 +355,7 @@ export interface FileRouteTypes {
     | ''
     | '/deferred'
     | '/posts'
+    | '/products'
     | '/redirect'
     | '/users'
     | '/posts/$postId'
@@ -353,6 +371,7 @@ export interface FileRouteTypes {
     | '/'
     | ''
     | '/deferred'
+    | '/products'
     | '/redirect'
     | '/posts/$postId'
     | '/users/$userId'
@@ -368,6 +387,7 @@ export interface FileRouteTypes {
     | '/_layout'
     | '/deferred'
     | '/posts'
+    | '/products'
     | '/redirect'
     | '/users'
     | '/_layout/_layout-2'
@@ -387,6 +407,7 @@ export interface RootRouteChildren {
   LayoutRoute: typeof LayoutRouteWithChildren
   DeferredRoute: typeof DeferredRoute
   PostsRoute: typeof PostsRouteWithChildren
+  ProductsRoute: typeof ProductsRoute
   RedirectRoute: typeof RedirectRoute
   UsersRoute: typeof UsersRouteWithChildren
   PostsPostIdDeepRoute: typeof PostsPostIdDeepRoute
@@ -398,6 +419,7 @@ const rootRouteChildren: RootRouteChildren = {
   LayoutRoute: LayoutRouteWithChildren,
   DeferredRoute: DeferredRoute,
   PostsRoute: PostsRouteWithChildren,
+  ProductsRoute: ProductsRoute,
   RedirectRoute: RedirectRoute,
   UsersRoute: UsersRouteWithChildren,
   PostsPostIdDeepRoute: PostsPostIdDeepRoute,
@@ -418,6 +440,7 @@ export const routeTree = rootRoute
         "/_layout",
         "/deferred",
         "/posts",
+        "/products",
         "/redirect",
         "/users",
         "/posts_/$postId/deep",
@@ -442,6 +465,9 @@ export const routeTree = rootRoute
         "/posts/$postId",
         "/posts/"
       ]
+    },
+    "/products": {
+      "filePath": "products.tsx"
     },
     "/redirect": {
       "filePath": "redirect.tsx"
