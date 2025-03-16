@@ -1,3 +1,42 @@
+# Metal forge
+
+Metal forge is a training project to try and train on new tech like: Tanstack Start and Form, motion framer, convex, stripe, elastic search...
+It's a fake music instruments shop.
+
+## Techs:
+
+- [ ] Use convex (https://www.convex.dev/docs/introduction)
+- [ ] Use motion (https://motion.dev/)
+- [ ] use zustand for state management (https://zustand.docs.pmnd.rs/)
+- [ ] Customize tailwind theme (https://tailwindcss.com/docs/customizing-colors)
+- [ ] Use shadcn/ui (https://ui.shadcn.com/)
+- [ ] Use lucide icons (https://lucide.dev/)
+- [ ] Use react-hook-form (https://react-hook-form.com/)
+- [ ] Use Clerk for authentication (https://clerk.com/docs/components/react-router)
+- [ ] Use zod for form validation (https://zod.dev/)
+- [ ] Use stripe for payment (https://stripe.com/docs)
+- [ ] Use Elastic search for products search (https://www.elastic.co/docs)
+
+## TODO:
+
+- [x] Add a landing page
+- [-] Add a complete header across pages
+- [-] Add a new route for products list
+- [ ] Add a new route for product details
+- [ ] Add a new route for login
+- [ ] Add a new route for register
+- [ ] Add a new route for user details
+- [ ] Add a new route for basket
+- [ ] Add a new route for checkout
+
+## Bonuses:
+
+- [ ] Add a new route for order confirmation
+- [ ] Add a new route for order history
+- [ ] Add a new route for payment
+- [ ] Add a new route for payment confirmation
+- [ ] Add a new route for payment history
+
 # Welcome to TanStack.com!
 
 This site is built with TanStack Router!
@@ -62,11 +101,3 @@ pnpm i
 # The app will run on https://localhost:3000 by default
 pnpm dev
 ```
-
-4. Now you can visit http://localhost:3000/form/latest/docs/overview in the browser and see the changes you make in `tanstack/form/docs`.
-
-> [!NOTE]
-> The updated pages need to be manually reloaded in the browser.
-
-> [!WARNING]
-> You will need to update the `docs/config.json` file (in the project's repo) if you add a new doc page!
