@@ -3,8 +3,9 @@ import { z } from 'zod'
 
 import { Link } from '@tanstack/react-router'
 import { Card, CardFooter, CardContent, CardHeader } from '../components/ui/card'
+import { H1, H3, P } from '../components/ui/typography'
 
-export type Category = 'guitar' | 'keyboard' | 'drum' | 'accessory'
+export type Category = 'guitar' | 'keyboard' | 'drum' | 'bass' | 'accessory'
 
 // Example product type - adjust based on your needs
 type Product = {
@@ -43,9 +44,9 @@ function ProductsComponent() {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">
+      <H1 className="mb-6">
         {category ? `${category.charAt(0).toUpperCase() + category.slice(1)}s` : 'All Gear'}
-      </h1>
+      </H1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredProducts.map((product) => (
@@ -64,10 +65,10 @@ function ProductsComponent() {
                 />
               </CardHeader>
               <CardContent className="p-4">
-                <h2 className="font-semibold text-lg">{product.name}</h2>
+                <H3>{product.name}</H3>
               </CardContent>
               <CardFooter className="p-4 pt-0">
-                <p className="text-lg font-bold">${product.price.toLocaleString()}</p>
+                <P className="text-lg font-bold">${product.price.toLocaleString()}</P>
               </CardFooter>
             </Card>
           </Link>
