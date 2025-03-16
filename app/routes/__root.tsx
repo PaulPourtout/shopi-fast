@@ -1,55 +1,48 @@
-import {
-  HeadContent,
-  Link,
-  Outlet,
-  Scripts,
-  createRootRoute,
-} from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import * as React from "react";
-import { DefaultCatchBoundary } from "~/components/DefaultCatchBoundary";
-import { NotFound } from "~/components/NotFound";
-import appCss from "~/styles/app.css?url";
-import { seo } from "~/utils/seo";
-import { Button } from "../components/ui/button";
+import { HeadContent, Link, Outlet, Scripts, createRootRoute } from '@tanstack/react-router'
+import { TanStackRouterDevtools } from '@tanstack/router-devtools'
+import * as React from 'react'
+import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary'
+import { NotFound } from '~/components/NotFound'
+import appCss from '~/styles/app.css?url'
+import { seo } from '~/utils/seo'
+import { Button } from '../components/ui/button'
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
-        charSet: "utf-8",
+        charSet: 'utf-8',
       },
       {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1',
       },
       ...seo({
-        title:
-          "TanStack Start | Type-Safe, Client-First, Full-Stack React Framework",
+        title: 'TanStack Start | Type-Safe, Client-First, Full-Stack React Framework',
         description: `TanStack Start is a type-safe, client-first, full-stack React framework. `,
       }),
     ],
     links: [
-      { rel: "stylesheet", href: appCss },
+      { rel: 'stylesheet', href: appCss },
       {
-        rel: "apple-touch-icon",
-        sizes: "180x180",
-        href: "/apple-touch-icon.png",
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png',
       },
       {
-        rel: "icon",
-        type: "image/png",
-        sizes: "32x32",
-        href: "/favicon-32x32.png",
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon-32x32.png',
       },
       {
-        rel: "icon",
-        type: "image/png",
-        sizes: "16x16",
-        href: "/favicon-16x16.png",
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/favicon-16x16.png',
       },
-      { rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
-      { rel: "icon", href: "/favicon.ico" },
+      { rel: 'manifest', href: '/site.webmanifest', color: '#fffff' },
+      { rel: 'icon', href: '/favicon.ico' },
     ],
   }),
   errorComponent: (props) => {
@@ -57,18 +50,18 @@ export const Route = createRootRoute({
       <RootDocument>
         <DefaultCatchBoundary {...props} />
       </RootDocument>
-    );
+    )
   },
   notFoundComponent: () => <NotFound />,
   component: RootComponent,
-});
+})
 
 function RootComponent() {
   return (
     <RootDocument>
       <Outlet />
     </RootDocument>
-  );
+  )
 }
 
 function RootDocument({ children }: { children: React.ReactNode }) {
@@ -83,7 +76,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             <Link
               to="/"
               activeProps={{
-                className: "font-bold",
+                className: 'font-bold',
               }}
               activeOptions={{ exact: true }}
             >
@@ -92,43 +85,43 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             <Link
               to="/products"
               activeProps={{
-                className: "font-bold",
+                className: 'font-bold',
               }}
             >
               All Gear
             </Link>
             <Link
               to="/products"
-              search={{ category: "guitar" }}
+              search={{ category: 'guitar' }}
               activeProps={{
-                className: "font-bold",
+                className: 'font-bold',
               }}
             >
               Guitars
             </Link>
             <Link
               to="/products"
-              search={{ category: "keyboard" }}
+              search={{ category: 'keyboard' }}
               activeProps={{
-                className: "font-bold",
+                className: 'font-bold',
               }}
             >
               Keyboards
             </Link>
             <Link
               to="/products"
-              search={{ category: "drum" }}
+              search={{ category: 'drum' }}
               activeProps={{
-                className: "font-bold",
+                className: 'font-bold',
               }}
             >
               Drums
             </Link>
             <Link
               to="/products"
-              search={{ category: "accessory" }}
+              search={{ category: 'accessory' }}
               activeProps={{
-                className: "font-bold",
+                className: 'font-bold',
               }}
             >
               Accessories
@@ -142,7 +135,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               // @ts-expect-error
               to="/sign-in"
               activeProps={{
-                className: "font-bold",
+                className: 'font-bold',
               }}
             >
               <Button>Sign In</Button>
@@ -158,43 +151,31 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               <div>
                 <h4 className="text-xl font-bold mb-4">About Us</h4>
                 <p className="text-gray-400">
-                  We are passionate about bringing the best musical instruments
-                  to musicians of all levels. Our commitment to quality and
-                  service has made us a trusted name in the industry.
+                  We are passionate about bringing the best musical instruments to musicians of all
+                  levels. Our commitment to quality and service has made us a trusted name in the
+                  industry.
                 </p>
               </div>
               <div>
                 <h4 className="text-xl font-bold mb-4">Quick Links</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
                       Shop
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
                       About
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
                       Contact
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
                       Blog
                     </a>
                   </li>
@@ -235,5 +216,5 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  );
+  )
 }

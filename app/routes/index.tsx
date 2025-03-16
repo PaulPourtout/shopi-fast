@@ -1,13 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Button } from "../components/ui/button";
-import { ThumbsUp } from "lucide-react";
-import { ProductCard } from "../components/ProductCard";
-import { Card } from "../components/ui/card";
-import { CategoryCard } from "../components/CategoryCard";
+import { createFileRoute } from '@tanstack/react-router'
+import { Button } from '../components/ui/button'
+import { ThumbsUp } from 'lucide-react'
+import { ProductCard } from '../components/ProductCard'
+import { Card } from '../components/ui/card'
+import { CategoryCard } from '../components/CategoryCard'
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute('/')({
   component: Home,
-});
+})
 
 function Home() {
   return (
@@ -17,8 +17,8 @@ function Home() {
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070&auto=format&fit=crop')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       >
         <h1 className="text-5xl font-bold text-white z-10">
@@ -31,10 +31,7 @@ function Home() {
           <Button className="bg-primary hover:bg-primary/90">
             Shop Now <ThumbsUp className="ml-2" />
           </Button>
-          <Button
-            variant="outline"
-            className="bg-white/10 text-white hover:bg-white/20"
-          >
+          <Button variant="outline" className="bg-white/10 text-white hover:bg-white/20">
             View deals
           </Button>
         </div>
@@ -42,10 +39,7 @@ function Home() {
       <main className="mb-4">
         <div className="flex flex-col gap-4 items-center">
           <h2>Featured Gear</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
           <div className="flex gap-4 flex-wrap justify-center">
             <ProductCard
               image="https://sc1.musik-produktiv.com/pic-010160326l/gibson-les-paul-standard-60s-faded-vintage-cherry-sunburst.jpg"
@@ -109,5 +103,5 @@ function Home() {
         </div>
       </main>
     </div>
-  );
+  )
 }
