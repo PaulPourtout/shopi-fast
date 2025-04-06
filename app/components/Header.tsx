@@ -1,7 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { Button } from './ui/button'
 import { ShoppingCart, Skull } from 'lucide-react'
-import { H1 } from './ui/typography'
 
 export function Header() {
   return (
@@ -19,9 +18,10 @@ export function Header() {
             Metal Forge
           </h1>
         </Link>
-        <div className="flex gap-2 items-center justify-center flex-1">
+        <div className="flex gap-2 md:gap-6 lg:gap-16 items-center justify-center flex-1">
           <Link
             to="/products"
+            className="relative after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-current after:transition-transform hover:after:scale-x-100"
             activeProps={{
               className: 'font-bold',
             }}
@@ -31,6 +31,7 @@ export function Header() {
           <Link
             to="/products"
             search={{ category: 'guitar' }}
+            className="relative after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-current after:transition-transform hover:after:scale-x-100"
             activeProps={{
               className: 'font-bold',
             }}
@@ -40,6 +41,7 @@ export function Header() {
           <Link
             to="/products"
             search={{ category: 'keyboard' }}
+            className="relative after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-current after:transition-transform hover:after:scale-x-100"
             activeProps={{
               className: 'font-bold',
             }}
@@ -49,6 +51,7 @@ export function Header() {
           <Link
             to="/products"
             search={{ category: 'drum' }}
+            className="relative after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-current after:transition-transform hover:after:scale-x-100"
             activeProps={{
               className: 'font-bold',
             }}
@@ -58,6 +61,7 @@ export function Header() {
           <Link
             to="/products"
             search={{ category: 'accessory' }}
+            className="relative after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:origin-center after:scale-x-0 after:bg-current after:transition-transform hover:after:scale-x-100"
             activeProps={{
               className: 'font-bold',
             }}
