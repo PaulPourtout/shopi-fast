@@ -21,6 +21,7 @@ import { Route as IndexImport } from './routes/index'
 import { Route as UsersIndexImport } from './routes/users.index'
 import { Route as PostsIndexImport } from './routes/posts.index'
 import { Route as UsersUserIdImport } from './routes/users.$userId'
+import { Route as ProductProductIdImport } from './routes/product.$productId'
 import { Route as PostsPostIdImport } from './routes/posts.$postId'
 import { Route as LayoutLayout2Import } from './routes/_layout/_layout-2'
 import { Route as PostsPostIdDeeperImport } from './routes/posts_.$postId.deeper'
@@ -87,6 +88,12 @@ const UsersUserIdRoute = UsersUserIdImport.update({
   id: '/$userId',
   path: '/$userId',
   getParentRoute: () => UsersRoute,
+} as any)
+
+const ProductProductIdRoute = ProductProductIdImport.update({
+  id: '/product/$productId',
+  path: '/product/$productId',
+  getParentRoute: () => rootRoute,
 } as any)
 
 const PostsPostIdRoute = PostsPostIdImport.update({
@@ -190,6 +197,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/posts/$postId'
       preLoaderRoute: typeof PostsPostIdImport
       parentRoute: typeof PostsImport
+    }
+    '/product/$productId': {
+      id: '/product/$productId'
+      path: '/product/$productId'
+      fullPath: '/product/$productId'
+      preLoaderRoute: typeof ProductProductIdImport
+      parentRoute: typeof rootRoute
     }
     '/users/$userId': {
       id: '/users/$userId'
@@ -303,6 +317,7 @@ export interface FileRoutesByFullPath {
   '/redirect': typeof RedirectRoute
   '/users': typeof UsersRouteWithChildren
   '/posts/$postId': typeof PostsPostIdRoute
+  '/product/$productId': typeof ProductProductIdRoute
   '/users/$userId': typeof UsersUserIdRoute
   '/posts/': typeof PostsIndexRoute
   '/users/': typeof UsersIndexRoute
@@ -319,6 +334,7 @@ export interface FileRoutesByTo {
   '/products': typeof ProductsRoute
   '/redirect': typeof RedirectRoute
   '/posts/$postId': typeof PostsPostIdRoute
+  '/product/$productId': typeof ProductProductIdRoute
   '/users/$userId': typeof UsersUserIdRoute
   '/posts': typeof PostsIndexRoute
   '/users': typeof UsersIndexRoute
@@ -339,6 +355,7 @@ export interface FileRoutesById {
   '/users': typeof UsersRouteWithChildren
   '/_layout/_layout-2': typeof LayoutLayout2RouteWithChildren
   '/posts/$postId': typeof PostsPostIdRoute
+  '/product/$productId': typeof ProductProductIdRoute
   '/users/$userId': typeof UsersUserIdRoute
   '/posts/': typeof PostsIndexRoute
   '/users/': typeof UsersIndexRoute
@@ -359,6 +376,7 @@ export interface FileRouteTypes {
     | '/redirect'
     | '/users'
     | '/posts/$postId'
+    | '/product/$productId'
     | '/users/$userId'
     | '/posts/'
     | '/users/'
@@ -374,6 +392,7 @@ export interface FileRouteTypes {
     | '/products'
     | '/redirect'
     | '/posts/$postId'
+    | '/product/$productId'
     | '/users/$userId'
     | '/posts'
     | '/users'
@@ -392,6 +411,7 @@ export interface FileRouteTypes {
     | '/users'
     | '/_layout/_layout-2'
     | '/posts/$postId'
+    | '/product/$productId'
     | '/users/$userId'
     | '/posts/'
     | '/users/'
@@ -410,6 +430,7 @@ export interface RootRouteChildren {
   ProductsRoute: typeof ProductsRoute
   RedirectRoute: typeof RedirectRoute
   UsersRoute: typeof UsersRouteWithChildren
+  ProductProductIdRoute: typeof ProductProductIdRoute
   PostsPostIdDeepRoute: typeof PostsPostIdDeepRoute
   PostsPostIdDeeperRoute: typeof PostsPostIdDeeperRoute
 }
@@ -422,6 +443,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProductsRoute: ProductsRoute,
   RedirectRoute: RedirectRoute,
   UsersRoute: UsersRouteWithChildren,
+  ProductProductIdRoute: ProductProductIdRoute,
   PostsPostIdDeepRoute: PostsPostIdDeepRoute,
   PostsPostIdDeeperRoute: PostsPostIdDeeperRoute,
 }
@@ -443,6 +465,7 @@ export const routeTree = rootRoute
         "/products",
         "/redirect",
         "/users",
+        "/product/$productId",
         "/posts_/$postId/deep",
         "/posts_/$postId/deeper"
       ]
@@ -490,6 +513,9 @@ export const routeTree = rootRoute
     "/posts/$postId": {
       "filePath": "posts.$postId.tsx",
       "parent": "/posts"
+    },
+    "/product/$productId": {
+      "filePath": "product.$productId.tsx"
     },
     "/users/$userId": {
       "filePath": "users.$userId.tsx",
